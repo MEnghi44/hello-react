@@ -14,13 +14,19 @@ const App = () => {
     });
   };
 
+  const getkmJOIN = () => {
+    Axios.get("http://localhost:3000/kmJOIN").then((response) => {
+      setkm(response.data);
+    });
+  };
+
   return (
     <Router>
       <Navbar />
       <div className="container  mx-auto">
         <Routes>
           <Route path="/" element={<Home handledOnLoad={getkm} km={km} />} />
-          <Route path="/Type" element={<Type />} />
+          <Route path="/Type/group_id" element={<Type />} />
         </Routes>
       </div>
     </Router>
